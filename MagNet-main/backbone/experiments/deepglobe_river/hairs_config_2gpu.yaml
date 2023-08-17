@@ -1,0 +1,67 @@
+CUDNN:
+  BENCHMARK: true
+  DETERMINISTIC: false
+  ENABLED: false
+GPUS: (0,1)
+OUTPUT_DIR: 'exp99_hairs_2gpu_noalbum_seed600'
+LOG_DIR: 'exp99_hairs_2gpu_noalbum_seed600'
+WORKERS: 10
+PRINT_FREQ: 10
+
+DATASET:
+  DATASET: deepglobe_river
+  ROOT: ../data/
+  TEST_SET: 'list/hairs_magnet/val.txt'
+  TRAIN_SET: 'list/hairs_magnet/train.txt'
+  NUM_CLASSES: 6
+MODEL:
+  NAME: ResnetFPN
+  CHANGE_LAST_LAYER: true
+  FREEZE_ENCODER: false
+  FREEZE_MODEL: false
+  PRETRAINED: pretrained_weights/deepglobe_fpn.pth
+  GRAY_TO_RGB_LAYER: false
+  
+LOSS:
+  USE_OHEM: false
+  OHEMTHRES: 0.9
+  OHEMKEEP: 131072
+  BALANCE_WEIGHTS: [1]
+TRAIN:
+  RESIZE:
+  - 508
+  - 508
+  IMAGE_SIZE:
+  - 612
+  - 612
+  BASE_SIZE: 508
+  BATCH_SIZE_PER_GPU: 12
+  SHUFFLE: true
+  BEGIN_EPOCH: 0
+  END_EPOCH: 584
+  RESUME: true
+  OPTIMIZER: sgd
+  LR: 0.001
+  WD: 0.0005
+  MOMENTUM: 0.9
+  NESTEROV: false
+  FLIP: true
+  MULTI_SCALE: false
+  DOWNSAMPLERATE: 1
+  IGNORE_LABEL: 255
+  SCALE_FACTOR: 16
+  SWA_START: 484
+  SWA_LR: 0.000001
+  RANDOM_BRIGHTNESS: true
+  RANDOM_BRIGHTNESS_SHIFT_VALUE: 25
+TEST:
+  RESIZE:
+  - 508
+  - 508
+  IMAGE_SIZE:
+  - 612
+  - 612
+  BASE_SIZE: 508
+  BATCH_SIZE_PER_GPU: 16
+  FLIP_TEST: false
+  MULTI_SCALE: false

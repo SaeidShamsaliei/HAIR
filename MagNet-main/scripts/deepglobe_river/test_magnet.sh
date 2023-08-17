@@ -1,0 +1,17 @@
+python test.py --dataset deepglobe_river \
+--root data/deepglobe_river \
+--datalist data/list/deepglobe_river/val.txt \
+--scales 612-612,1224-1224,2448-2448 \
+--crop_size 612 612 \
+--input_size 508 508 \
+--num_workers 8 \
+--model fpn \
+--pretrained backbone/exp10_output/deepglobe_river/resnet_fpn_train_612x612_sgd_lr1e-2_wd5e-4_bs_12_epoch484/swa_state.pth \
+--pretrained_refinement runs_exp8/deepglobe_river_refinement/10032022-201620/epoch50.pth \
+--num_classes 6 \
+--sub_batch_size 1 \
+--n_points 0.75 \
+--n_patches -1 \
+--smooth_kernel 11 \
+--save_pred \
+--save_dir test_results/exp19_swa_deepglobe_river_train
