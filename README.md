@@ -28,7 +28,7 @@ modify the parameters of the `<path to the directory/MagNet-main/scripts/deepglo
 
 ### Inference
 
-Modify the script `MagNet-main/prediction_from_dir.py`. The parameters are smiliar to the original [**MagNet**](https://github.com/VinAIResearch/MagNet).
+Modify the script `MagNet-main/prediction_from_dir.py`. The parameters are similar to the original [**MagNet**](https://github.com/VinAIResearch/MagNet).
 
 ```bash
 python prediction_from_dir.py --progressive_flag 1 \
@@ -68,7 +68,7 @@ docker run --rm -it -v $-v $<path to workscape data>:/workspace/data -v $<path t
 conda activate tf_gpu_env
 ```
 
-3. Install all the required libreries
+3. Install all the required libraries
 ```bash
 # If using the docker:
 sh ./workspace/code/Other_models/source/installation.sh
@@ -96,7 +96,7 @@ cd <path to the directory>/Other_models/source
 python run_predictions_costum.py
 ```
 
-# Evalattion
+# Evaluation
 
 ## MagNet
 
@@ -123,6 +123,6 @@ python Nips_test_miou.py
 ```
 
 
-# Grayscale DeepGlobe Pre-trained weightes
+# Grayscale DeepGlobe Pre-trained weights
 
-The weights of pre-trained models on grayscaled [**DeepGlobe**](http://deepglobe.org/) can be found in [**Pretrained weights**](https://drive.google.com/drive/folders/1i_2zE-kjR37h6yGVWRaq554bF1-ykzMQ).
+The weights of pre-trained models on grayscaled [**DeepGlobe**](http://deepglobe.org/) can be found in [**pretrained weights**](https://drive.google.com/drive/folders/1i_2zE-kjR37h6yGVWRaq554bF1-ykzMQ).
