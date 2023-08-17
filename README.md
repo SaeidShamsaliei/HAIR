@@ -16,11 +16,13 @@ cd <path to the directory>/MagNet-main/
 source <env name>/bin/activate
 ```
 3. Modify the config file at `<path to the directory/MagNet-main/backbone/experiments/deepglobe_river>`
-4. 
+4. Run the script
 ```bash
-cd <path to the directory>/MagNet-main/
+# To train without Stochastic Weight Averaging:
+python train.py --cfg experiments/deepglobe_river/hairs_config_seed4.yaml --seed 4
 
-source <env name>/bin/activate
+# To use Stochastic Weight Averaging:
+python train_swa.py --cfg experiments/deepglobe_river/hairs_config_seed4.yaml --seed 
 ```
 ### Training refinement modules
 
