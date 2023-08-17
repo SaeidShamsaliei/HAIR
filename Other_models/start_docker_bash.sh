@@ -1,0 +1,1 @@
+docker run --rm -it -v $HOME/segmentation/data:/workspace/data -v $HOME/arild_reproduce/arild_code:/workspace/code -v /data/saeids/arild_reproduce:/data -p 21340:8888 --gpus device=2 saeids/tf_gpu_v1 /bin/bash

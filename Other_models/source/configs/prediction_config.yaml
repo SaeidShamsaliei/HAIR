@@ -1,0 +1,59 @@
+# Config file for run_prediction.py which is the pipline for using segmentation models
+experiment_no: 0
+
+# list of models (in case of ensemble, there should be more than one models)
+# '/home/saeid/phd/segmentation/experiments_results/rundir_aug_batch4/2021-05-31_12:21:39.487631_vgg16_freeze_2/model.hdf5'
+# '/home/saeid/phd/segmentation/experiments_results/rundir_aug_batch4/2021-06-03_19:00:57.019923_vgg16_freeze_2/model.hdf5'
+# '/home/saeid/phd/segmentation/experiments_results/rundir_aug_batch16/2021-06-01_09:48:22.897511_vgg16_freeze_2/model.hdf5'
+# '/home/saeid/phd/segmentation/costum-arild/model/model.hdf5'
+
+# model_path: ['/home/saeid/phd/segmentation/costum-arild/model/model.hdf5']
+# model_path: ['/data/exp_backup/exp_no61/2022-04-03_21:18:14.565314_fpn_resnet50_freeze_0/model_swa.hdf5']
+
+# best model for G47
+# model_path: ['/data/nips/exp/exp_no601/2023-04-21_09:04:19.285262_deeplabv3_resnet50_freeze_0/model.hdf5']
+
+# try for visualization
+# model_path: ['/data/HAIR_2023/exp/deeplab/2023-04-08_11:52:38.972098_deeplabv3_resnet50_freeze_0/model.hdf5',]
+# model_path: ['/data/HAIR_2023/exp/fpn/normal/2023-04-24_09:03:11.351222_fpn_resnet50_freeze_0/model.hdf5',]
+# model_path: ['/data/HAIR_2023/exp/hrnet/normal/2023-04-13_08:56:02.308437_hrnet_freeze_0/model.hdf5']
+model_path: ['/data/HAIR_2023/exp/unet/pretrain/2023-04-20_20:45:43.654716_unet_resnet50/model.hdf5']
+
+# model_path: ['/data/exp_backup/exp_no18/2022-04-15_07:21:22.437819_unet_resnet50_freeze_0/model_swa.hdf5']
+# model_path: ['/data/exp_backup/exp_no13/2022-04-09_11:21:58.530730_vgg16_freeze_0/model_swa.hdf5']
+
+# /home/saeid/phd/segmentation/dataset/test_dataset/bounding_box_images/gaula_1963_test/
+# /home/saeid/phd/segmentation/dataset/test_dataset/bounding_box_images/gaula_1998_test/  
+# /home/saeid/phd/segmentation/dataset/test_dataset/bounding_box_images/nea_1962_test/
+
+
+# input_path: /data/test_dataset/complete_surna_2004/image
+input_path: /data/HAIR_2023/all_test_tif/image/
+# output_path: /home/saeid/phd/segmentation/dataset/new_rivers/gaula_2009/label
+# output_path: /data/test_dataset/complete_surna_2004/label
+output_path: /data/HAIR_2023/unet_results/
+
+
+# the shapefile path which will be used to clip the raster after being merged
+boundary_shape_path: /home/saeid/phd/segmentation/dataset/new_rivers/gaula/gaula_top_shape.shp
+# 
+input_rgb: True
+
+experiment:
+  # experiment types: 'single_model', 'ensemble_model' 'sliding_window_model'
+  exp_type: single_model
+  segmentation: True
+  # TODO should be set so that after segmentation median filter smoothen the image
+  median_after_segmentation: True
+  # in case that median filter should not be executed. it should set to False, otherwise
+  # size of kernel should be set below
+  # this median filter will be applied to all small images before the merge
+  median_kernel_size: False
+  merging: False
+  clip: False
+  polygonize: False
+  output_name: merged_output
+  intensity_correction: 0.0
+  add_filter_channel: False
+  have_lr_scheduler: True
+
