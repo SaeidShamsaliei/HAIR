@@ -22,7 +22,7 @@ source <env name>/bin/activate
 python train.py --cfg experiments/deepglobe_river/hairs_config_seed4.yaml --seed 4
 
 # To use Stochastic Weight Averaging:
-python train_swa.py --cfg experiments/deepglobe_river/hairs_config_seed4.yaml --seed 
+python train_swa.py --cfg experiments/deepglobe_river/hairs_config_seed4.yaml --seed 4
 ```
 ### Training refinement modules
 
